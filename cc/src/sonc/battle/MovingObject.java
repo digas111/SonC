@@ -133,7 +133,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 	final void updatePosition() {
 		
 		if(heading > Math.PI/2 && heading <)
-		
+		//cheiras mal
 	}
 	
 	
