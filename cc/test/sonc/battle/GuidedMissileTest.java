@@ -18,7 +18,7 @@ import sonc.utils.WorldViewer;
 /**
  * Test guided missiles fired from ships
  * 
- * @author José Paulo Leal {@code zp@dcc.fc.up.pt}
+ * @author Jos&eacute; Paulo Leal {@code zp@dcc.fc.up.pt}
  */
 public class GuidedMissileTest extends TestData {
 	private static final int SPEED = 5;

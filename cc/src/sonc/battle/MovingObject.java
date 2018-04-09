@@ -1,6 +1,6 @@
 package sonc.battle;
 
-public abstract class MovingObject extends java.lang.Object{
+public abstract class MovingObject extends java.lang.Object implements HasPoint{
 
 	private int status;
 	private double heading;
@@ -117,7 +117,22 @@ public abstract class MovingObject extends java.lang.Object{
 	
 	protected double headingTo(MovingObject other) {
 		
+		//not 100% sure about this one
 		
+		double distanceX = Math.abs(this.x - other.getX());
+		double distanceY = Math.abs(this.y - other.getY());
+		
+		double positionAngle = Math.atan(distanceX/distanceY);
+		
+		double defAngle = heading + positionAngle;
+		
+		return normalizeAngle(defAngle);
+		
+	}
+	
+	final void updatePosition() {
+		
+		if(heading > Math.PI/2 && heading <)
 		
 	}
 	
@@ -131,17 +146,17 @@ public abstract class MovingObject extends java.lang.Object{
 	 */
 	
 	final void doChangeSpeed(double delta) {
-		if(Math.abs(delta)>getMaxSpeedChange) {
+		if(Math.abs(delta)>getMaxSpeedChange()) {
 			speed += delta;
 			return;
 		}
 		if(Math.abs(speed)>getMaxSpeed()) {
 			if(speed>0) {
-				speed = getMaxSpeed;
+				speed = getMaxSpeed();
 				return;
 			}
 			else {
-				speed = -1*getMaxSpeed;
+				speed = -1*getMaxSpeed();
 			}
 		}
 	}
