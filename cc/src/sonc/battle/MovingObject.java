@@ -15,6 +15,8 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 	private int impactDamage;
 	private int size;
 	
+	java.lang.String color;
+	ship origin;
 	
 	public MovingObject(int status, double heading, double speed) {
 		super();
@@ -28,7 +30,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		return heading;
 	}
 
-	public void setHeading(double heading) {
+	void setHeading(double heading) {
 		this.heading = heading;
 	}
 
@@ -36,7 +38,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		return x;
 	}
 
-	public void setX(double x) {
+	void setX(double x) {
 		this.x = x;
 	}
 
@@ -44,7 +46,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		return y;
 	}
 
-	public void setY(double y) {
+	void setY(double y) {
 		this.y = y;
 	}
 
@@ -56,24 +58,32 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		return speed;
 	}
 
-	public double getMaxSpeedChange() {
+	abstract double getMaxSpeedChange() {
 		return maxSpeedChange;
 	}
 
-	public double getMaxSpeed() {
+	abstract double getMaxSpeed() {
 		return maxSpeed;
 	}
 
-	public double getMaxRotation() {
+	abstract double getMaxRotation() {
 		return maxRotation;
 	}
 
-	public int getImpactDamage() {
+	abstract int getImpactDamage() {
 		return impactDamage;
 	}
 
-	public int getSize() {
+	public abstract int getSize() {
 		return size;
+	}
+	
+	abstract ship getOrigin() {
+		
+	}
+	
+	public abstract java.lang.String getColor() {
+		return color;
 	}
 	
 	/**
@@ -212,20 +222,21 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		}
 	}
 	
-
+	void move() {
+		
+	}
 	
 	
+	void hitdBy(MovingObject moving) {
+		this.status -= moving.impactDamage;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public boolean isDestroyed() {
+		if(status <= 0) {
+			return true;
+		}
+		
+		return false;
+	}
 	
 }
