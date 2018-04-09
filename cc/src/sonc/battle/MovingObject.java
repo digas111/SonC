@@ -16,7 +16,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 	private int size;
 	
 	java.lang.String color;
-	ship origin;
+	Ship origin;
 	
 	public MovingObject(int status, double heading, double speed) {
 		super();
