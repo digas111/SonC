@@ -132,8 +132,47 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 	
 	final void updatePosition() {
 		
-		if(heading > Math.PI/2 && heading <)
-		//cheiras mal
+		double speed = getSpeed();
+		double x = getX();
+		double y = getY();
+		double heading = getHeading();
+		
+		double addX;
+		double addY;
+		
+		//improve the following code 
+		
+		if(heading < Math.PI/2 && heading <0) {
+			
+			addX = speed*Math.acos(heading);
+			addY = speed*Math.asin(heading);
+			
+		}
+		
+		else if (heading < Math.PI && heading > Math.PI/2) {
+			
+			addX = -1*speed*Math.acos(heading);
+			addY = speed*Math.asin(heading);
+			
+		}
+		
+		else if (heading < 3*Math.PI/2 && heading > Math.PI) {
+			
+			addX = -1*speed*Math.acos(heading);
+			addY = -1*speed*Math.asin(heading);
+			
+		}
+		
+		else if (heading > 3*Math.PI/2 && heading < 2*Math.PI) {
+			
+			addX = speed*Math.acos(heading);
+			addY = -1*speed*Math.asin(heading);
+			
+		}
+		
+		setX(x + addX);
+		setY(y + addY);		
+		
 	}
 	
 	
