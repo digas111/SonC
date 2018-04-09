@@ -175,7 +175,19 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		
 	}
 	
-	
+	final void doRotate(double delta) {
+		//check for the max rotation value
+		
+		if(Math.abs(delta) < maxRotation) {
+			heading += delta;
+		}
+		else if(delta<0){
+			heading -= delta;
+		}
+		
+		heading += delta;
+		
+	}
 	
 	
 	/**
@@ -200,11 +212,7 @@ public abstract class MovingObject extends java.lang.Object implements HasPoint{
 		}
 	}
 	
-	final void doRotate(double delta) {
-		//check for the max rotation value
-		
-		heading += delta;
-	}
+
 	
 	
 	
