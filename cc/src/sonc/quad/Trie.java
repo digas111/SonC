@@ -1,6 +1,15 @@
 package sonc.quad;
 
 public abstract class Trie<T extends HasPoint> extends java.lang.Object {
+	
+	static enum Quadrant{
+		
+		NW,
+		NE,
+		SE,
+		SW;	
+		
+	}
 
 	protected double bottomRighX;
 	protected double bottomRghtY;
@@ -18,6 +27,19 @@ public abstract class Trie<T extends HasPoint> extends java.lang.Object {
 	}
 	
 	
+	public static int getCapacity() {
+		return capacity;
+	}
+	
+	
+	//o que se passa aqui??
+	public static void setCapacity(int c) {
+		capacity = c;
+	}
+	
+	abstract T find(T point);
+	
+
 
 	
 	
