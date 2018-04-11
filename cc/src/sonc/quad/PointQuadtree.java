@@ -18,6 +18,8 @@ public class PointQuadtree<T extends HasPoint> {
 	
 	public T find(T point) {
 		
+		if(this)
+		
 	}
 	
 	
