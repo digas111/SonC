@@ -2,33 +2,34 @@ package sonc.shared;
 
 public class Movie extends java.lang.Object{
 	private java.util.List<Frame> frames;
-	
+	private Frame currentFrame;
 	
 	public void newFrame() {
-		
+		this.currentFrame = new Frame();
+		frames.add(currentFrame);
 	}
 	
 	public void addOblong(int x, int y, float heading, int size, java.lang.String color) {
-		if (!IsNullOrEmpty(this.frames)) {
-			
+		if (frames.isEmpty()) {
+			throw new java.lang.IllegalStateException();
 		}
-		else throw
+		currentFrame.getOblongs().add(new Oblong(x, y, heading, size, color));
 	}
 	
 	public void addScore(java.lang.String name, int points, int status){
-		
+		if(frames.isEmpty()) {
+			throw new java.lang.IllegalStateException();
+		}
+		currentFrame.getScores().add(new Score(name, points, status));
 	}
 	
 	public java.util.List<Frame> getFrames(){
-		return this.frames;
+		return frames;
 	}
 	
 	/**
 	 * Auxiliar method to nullpointer exception
 	 * */
-	public static boolean IsNullOrEmpty(java.util.List<Frame> listF) {
-	    return listF == null || listF.isEmpty();
-	}
 	//Frame class
 	public static class Frame extends java.lang.Object{
 		private java.util.List<Oblong> oblongs;
