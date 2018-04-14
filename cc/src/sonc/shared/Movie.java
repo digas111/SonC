@@ -27,9 +27,7 @@ public class Movie extends java.lang.Object{
 		return frames;
 	}
 	
-	/**
-	 * Auxiliar method to nullpointer exception
-	 * */
+	
 	//Frame class
 	public static class Frame extends java.lang.Object{
 		private java.util.List<Oblong> oblongs;
